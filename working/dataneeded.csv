@@ -1,0 +1,15 @@
+file,variable,fun
+Electricity available to internal market.tsv,GWH,sum
+"GDP and main components (output, expenditure and income) (namq_10_gdp).tsv","CP_MEUR,NSA,B1G",sum
+"GDP and main components (output, expenditure and income) (namq_10_gdp).tsv","CP_MEUR,NSA,D1",sum
+"GDP and main components (output, expenditure and income) (namq_10_gdp).tsv","CP_MEUR,NSA,D11",sum
+Exports and imports by Member States of the EU or third countries.tsv,"CP_MEUR,NSA,P6",sum
+Exports and imports by Member States of the EU or third countries.tsv,"CP_MEUR,NSA,P7",sum
+Employment A10 industry breakdowns.tsv,"THS_HW,B-E,NSA,EMP_DC",sum
+Employment A10 industry breakdowns.tsv,"THS_HW,C,NSA,EMP_DC",sum
+Employment A10 industry breakdowns.tsv,"THS_HW,J,NSA,EMP_DC",sum
+Employment A10 industry breakdowns.tsv,"THS_HW,G-I,NSA,EMP_DC",sum
+Employment A10 industry breakdowns.tsv,"THS_HW,TOTAL,NSA,EMP_DC",sum
+Euro ECU exchange rates - quarterly data.tsv,"AVG,NAC,USD",mean
+"Supply, transformation and consumption of electricity - monthly data.tsv","IMP,E7000,GWH",sum
+"Supply, transformation and consumption of electricity - monthly data.tsv","EXP,E7000,GWH",sum

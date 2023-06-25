@@ -19,14 +19,16 @@ pdata <- pdata.frame(data, index = c("country", "date"))
 # Remove missing values from 'logcp_meur_nsa_b1g'
 pdata <- pdata[!is.na(pdata$cp_meur_nsa_b1g), ]
 #
-dim(X)
-dim(y)
+pdata
 # Define the response variable y and the matrix of predictors X
-# Repeat country-specific 'y' values to match the panel structure
-y <- matrix(rep(y, each = nrow(X) / nlevels(pdata$country)), nrow = nrow(X), ncol = ncol(y), byrow = TRUE)
-
-X <- as.matrix(pdata[, vars_to_log])# Calculate the OLS estimates using matrix algebra
+y =pdata$cp_meur_nsa_b1g
+# Create a matrix y with the same number of rows as X
+y <- matrix(y, nrow = nrow(X), ncol = 1)
+X <- as.matrix(pdata[, vars_to_log])
+# Calculate the OLS estimates using matrix algebra
 beta_hat <- solve(t(X) %*% X) %*% t(X) %*% y
+
+
 
 # Print the estimated coefficients
 print(beta_hat)
@@ -83,7 +85,7 @@ dw_stat <- sum(diff(residuals)^2) / SSE
 print(dw_stat)
 ### 2SLS regresion
 
-# Define the instrumental variable
+
 # Define the instrumental variable
 Z <- as.matrix(cbind(1, lag(pdata$cp_meur_nsa_b1g, 1), pdata$ths_hw_b_e_nsa_emp_dc - pdata$exp_e7000_gwh))
 
@@ -110,10 +112,10 @@ X_exog <- as.matrix(complete_data[, 2:3])
 Y <- complete_data$Y
 
 # First stage: regress the endogenous variable on the instruments
-beta_hat_1st <- solve(t(Z) %*% Z) %*% t(Z) %*% X_endog
+#beta_hat_1st <- solve(t(Z) %*% Z) %*% t(Z) %*% X_endog
 
 # Print the estimated coefficients from the first stage
-print(beta_hat_1st)
+#print(beta_hat_1st)
 # Check for identical columns
 for(i in 1:(ncol(Z)-1)) {
   for(j in (i+1):ncol(Z)) {
